@@ -1,0 +1,11 @@
+name: ChunkLoadNL
+version: 1.0
+author: vile_anastasik
+api-version: 1.16
+main: org.northlights.chunkloadnl.ChunkLoad
+description: Loads chunk.
+commands:
+  loadchunk:
+    aliases: [cl]
+  reloadchunkload:
+    aliases: [rlcl, rcl]
