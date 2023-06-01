@@ -24,16 +24,16 @@ public class LoadChunk implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (!sender.hasPermission("chunkloadnl.use")) {
 			sender.sendMessage(paint(plugin.getConfig().getString("no-permission")));
-			return false;
+			return true;
 		}
 		if (args.length != 1) {
 			sender.sendMessage(paint(plugin.getConfig().getString("args")));
-			return false;
+			return true;
 		}
 		Player p = Bukkit.getPlayerExact(args[0]);
 		if (p == null) {
 			sender.sendMessage(paint(plugin.getConfig().getString("player-offline")));
-			return false;
+			return true;
 		}
 		p.getLocation().getChunk().setForceLoaded(true);
 		sender.sendMessage(paint(plugin.getConfig().getString("chunk-force-loaded")));
@@ -58,7 +58,7 @@ public class LoadChunk implements CommandExecutor {
 			plugin.getConfig().set("chunks", List.of(builder.toString()));
 		}
 		plugin.saveConfig();
-		return false;
+		return true;
 	}
 
 }
